@@ -7,7 +7,7 @@
  * 从 joy 核心拆出：Lua VM + luaclib 绑定 + lua_cjson + luax 宿主。
  * 只有需要 Lua 脚本驱动引擎的工程才链接本模块；joy 核心不依赖它、也不带 Lua。
  *
- * 依赖：joy 公共 API（<joy/joy.h>）、SDL3、msgpack（部分绑定用到）。
+ * 依赖：joy 公共 API（<src/joy.h>）、SDL3、msgpack（部分绑定用到）。
  */
 
 #include <stdbool.h>

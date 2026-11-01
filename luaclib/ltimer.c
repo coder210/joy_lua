@@ -3,7 +3,7 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
 #include "luaclib.h"
-#include <joy/jconfig.h>
+#include <src/jconfig.h>
 
 typedef struct timer {
         uint64_t last_time;

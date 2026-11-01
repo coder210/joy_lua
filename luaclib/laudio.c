@@ -1,6 +1,6 @@
 #include "../external/lua/lapi.h"
 #include "../external/lua/lauxlib.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 #include "luaclib.h"
 
 /* ==================== 辅助：根据扩展名派发 ==================== */

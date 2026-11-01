@@ -1,6 +1,6 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include <joy/jmath.h>
+#include <src/jmath.h>
 #include "luaclib.h"
 
 static int l_ft_negate(lua_State *L)

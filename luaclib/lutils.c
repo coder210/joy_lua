@@ -2,7 +2,7 @@
 #include "../external/lua/lapi.h"
 #include "../external/lua/lauxlib.h"
 #include "luaclib.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 
 static int lcurrent_datetime(lua_State *L)
 {

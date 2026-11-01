@@ -1,6 +1,6 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include <joy/jmath.h>
+#include <src/jmath.h>
 #include "luaclib.h"
 
 static void read_vec2f(lua_State* L, int idx, vec2f_t* v)

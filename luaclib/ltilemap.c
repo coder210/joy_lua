@@ -1,7 +1,7 @@
 #include "luaclib.h"
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 
 static int l_tilemap_load_file(lua_State* L)
 {

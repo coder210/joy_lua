@@ -1,5 +1,5 @@
 #include "../external/lua/lauxlib.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 #include <SDL3/SDL.h>
 #include "luaclib.h"
 

@@ -1,7 +1,7 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
 #include "luaclib.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 
 static int l_ray_quad_int(lua_State *L)
 {

@@ -1,6 +1,6 @@
 #include "luaclib.h"
 #include "../external/lua/lauxlib.h"
-#include <joy/joy.h>
+#include <src/joy.h>
 
 /* ---- helper: get renderer from stack ---- */
 static jr2d_p get_ren(lua_State* L, int idx) {

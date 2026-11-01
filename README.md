@@ -5,7 +5,7 @@ joy 引擎的可选 **Lua 脚本后端**,从 joy 核心拆出的独立仓库。
 ## 定位
 - joy 核心本身**不依赖**本模块、也不携带 Lua 虚拟机。
 - 只有想让 Lua 脚本驱动引擎的项目,才把它作为可选依赖接入。
-- 依赖:joy 公共 API(`<joy/joy.h>`)、SDL3、msgpack(部分绑定用到)。
+- 依赖:joy 公共 API(`<src/joy.h>`)、SDL3、msgpack(部分绑定用到)。
 
 ## 内容
 - `joy_lua.h` —— 对外 API(`luax_*`,承接原 `joy.h` 里的 Lua 宿主声明)。
@@ -14,8 +14,8 @@ joy 引擎的可选 **Lua 脚本后端**,从 joy 核心拆出的独立仓库。
 - `external/lua/` —— Lua 5.4 虚拟机(amalgamation 源码)。
 - `external/lua_cjson/` —— 给 Lua 提供 JSON 的 C 模块。
 
-绑定/宿主源码直接以 `<joy/joy.h>`、`<joy/jmath.h>`、`<joy/jconfig.h>`、
-`<joy/external/kcp.h>` 包含 joy 核心头(由 CMake 的 include 目录解析),本仓不再放置转发头。
+绑定/宿主源码直接以 `<src/joy.h>`、`<src/jmath.h>`、`<src/jconfig.h>`、
+`<src/external/kcp.h>` 包含 joy 核心头(由 CMake 的 include 目录解析),本仓不再放置转发头。
 
 ## joy 子模块
 本仓通过 git submodule 引用 joy 核心,检出于 `joy/`:
@@ -24,7 +24,7 @@ git clone --recursive https://github.com/coder210/joy_lua.git
 # 已 clone 过(或想同步最新 joy):
 git submodule update --init --recursive
 ```
-`JOY_SOURCE_DIR` 默认即指向本仓 `joy/joy`(含 `joy.h`),通常无需手动设置。
+`JOY_SOURCE_DIR` 默认即指向本仓 `joy/src`(含 `joy.h`),通常无需手动设置。
 
 ## 接入方式(下游工程)
 ```cmake

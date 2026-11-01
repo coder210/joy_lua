@@ -2,7 +2,7 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
 #include <msgpack.h>
-#include <joy/joy.h>
+#include <src/joy.h>
 
 /* ===== 递归 pack：将 Lua 值编码到 msgpack sbuffer ===== */
 static int pack_one(lua_State* L, msgpack_packer* pk, int idx) {
