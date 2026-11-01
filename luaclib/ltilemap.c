@@ -6,7 +6,8 @@
 static int l_tilemap_load_file(lua_State* L)
 {
     const char* filename = luaL_checkstring(L, 1);
-    jtilemap_p tm = jtilemap_load_file(filename);
+    /* 核心已去掉 Lua 后端，只剩 cJSON 解析入口 */
+    jtilemap_p tm = jtilemap_load_file_json(filename);
     if (!tm) { lua_pushnil(L); return 1; }
     lua_pushlightuserdata(L, tm);
     return 1;
