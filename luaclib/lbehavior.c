@@ -1,7 +1,7 @@
 #include "luaclib.h"
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include "../joy.h"
+#include <joy/joy.h>
 
 #define BT_MT    "behavior_tree*"
 #define MAX_BT_CHILDREN 32

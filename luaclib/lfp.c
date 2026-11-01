@@ -1,6 +1,6 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include "../jmath.h"
+#include <joy/jmath.h>
 #include "luaclib.h"
 
 static int l_fp_from_float(lua_State* L)

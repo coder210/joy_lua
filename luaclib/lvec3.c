@@ -1,5 +1,5 @@
 #include "../external/lua/lauxlib.h"
-#include "../jmath.h"
+#include <joy/jmath.h>
 #include "luaclib.h"
 
 static int l_vec3_negate(lua_State *L)

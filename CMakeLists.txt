@@ -7,8 +7,9 @@
 # 使用方需提供（cache 变量）：
 #   JOY_SOURCE_DIR   joy 源码目录（含 joy.h 的目录，即 <repo>/joy/joy）
 #
-# 说明：本仓根放置了 joy.h / jmath.h / jconfig.h 及 external/kcp.h 四个转发头，
-# 让 luaclib / jluax.c 内部的相对 include 无需改动即可指向 joy 核心。
+# 说明：luaclib / jluax.c 直接以 <joy/joy.h>、<joy/jmath.h>、<joy/jconfig.h>、
+# <joy/external/kcp.h> 包含 joy 核心头，由下方 include 目录（${JOY_SOURCE_DIR}/..
+# 即 joy 仓库根）解析；本仓不再放置任何转发头。
 # ============================================================
 cmake_minimum_required(VERSION 3.16)
 

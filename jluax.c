@@ -13,7 +13,7 @@ History:
 #include "external/lua/lauxlib.h"
 #include "external/lua_cjson/lua_cjson.h"
 #include "luaclib/luaclib.h"
-#include "joy.h"
+#include <joy/joy.h>
 #include "joy_lua.h"
 
 /* set_env / get_env 前向声明 */

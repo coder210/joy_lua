@@ -1,7 +1,7 @@
 #include <SDL3/SDL.h>
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include "../joy.h"
+#include <joy/joy.h>
 #include "luaclib.h"
 
 static int l_janimator_create(lua_State* L)

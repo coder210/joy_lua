@@ -1,7 +1,7 @@
 ﻿#include "luaclib.h"
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
-#include "../joy.h"
+#include <joy/joy.h>
 
 /* ===== UTF-8 字符串 → 码点数组（使用 jutils.h 的 utf8_decode_all） ===== */
 static int* str_to_codepoints(lua_State* L, int idx, int* out_len) {

@@ -13,9 +13,9 @@ joy 引擎的可选 **Lua 脚本后端**,从 joy 核心拆出的独立仓库。
 - `luaclib/` —— Lua 绑定层(`luaopen_*`,把 joy 接口暴露给脚本)。
 - `external/lua/` —— Lua 5.4 虚拟机(amalgamation 源码)。
 - `external/lua_cjson/` —— 给 Lua 提供 JSON 的 C 模块。
-- `joy.h` / `jmath.h` / `jconfig.h` / `external/kcp.h` —— 兼容转发头:
-  让 `luaclib/*.c`、`jluax.c` 内部的相对 include 无需改动即可解析到 joy 核心;
-  从而保持绑定/宿主源码与上游一致。
+
+绑定/宿主源码直接以 `<joy/joy.h>`、`<joy/jmath.h>`、`<joy/jconfig.h>`、
+`<joy/external/kcp.h>` 包含 joy 核心头(由 CMake 的 include 目录解析),本仓不再放置转发头。
 
 ## joy 子模块
 本仓通过 git submodule 引用 joy 核心,检出于 `joy/`:

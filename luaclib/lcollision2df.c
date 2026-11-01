@@ -1,7 +1,7 @@
 #include "../external/lua/lauxlib.h"
 #include "../external/lua/lua.h"
 #include "luaclib.h"
-#include "../joy.h"
+#include <joy/joy.h>
 
 static int l_collision2df_circlesx(lua_State *L)
 {
