@@ -32,9 +32,14 @@ if(NOT TARGET joy_lua)
 
     target_include_directories(joy_lua PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+    # joy 核心以 submodule 形式位于本仓 joy/ 下；也兼容同级源码树（../joy）
     if(NOT DEFINED JOY_SOURCE_DIR)
-        set(JOY_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../joy/joy"
-            CACHE PATH "joy 源码目录（含 joy.h）")
+        if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/joy/joy/joy.h")
+            set(_joy_default "${CMAKE_CURRENT_SOURCE_DIR}/joy/joy")
+        else()
+            set(_joy_default "${CMAKE_CURRENT_SOURCE_DIR}/../joy/joy")
+        endif()
+        set(JOY_SOURCE_DIR "${_joy_default}" CACHE PATH "joy 源码目录（含 joy.h）")
     endif()
     # 使转发头里的 #include <joy/joy.h> 等成立
     target_include_directories(joy_lua PRIVATE "${JOY_SOURCE_DIR}/..")
@@ -51,8 +56,9 @@ if(NOT TARGET joy_lua)
     elseif(TARGET msgpack-c)
         target_link_libraries(joy_lua PUBLIC msgpack-c)
     endif()
+    # msgpack 随 joy 子模块一同提供（<joy 源码根>/msgpack）
     if(NOT DEFINED JOY_MSGPACK_DIR)
-        set(JOY_MSGPACK_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../joy/msgpack")
+        set(JOY_MSGPACK_DIR "${JOY_SOURCE_DIR}/../msgpack")
     endif()
     target_include_directories(joy_lua PRIVATE
         "${JOY_MSGPACK_DIR}/include"

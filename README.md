@@ -17,12 +17,20 @@ joy 引擎的可选 **Lua 脚本后端**,从 joy 核心拆出的独立仓库。
   让 `luaclib/*.c`、`jluax.c` 内部的相对 include 无需改动即可解析到 joy 核心;
   从而保持绑定/宿主源码与上游一致。
 
+## joy 子模块
+本仓通过 git submodule 引用 joy 核心,检出于 `joy/`:
+```powershell
+git clone --recursive https://github.com/coder210/joy_lua.git
+# 已 clone 过(或想同步最新 joy):
+git submodule update --init --recursive
+```
+`JOY_SOURCE_DIR` 默认即指向本仓 `joy/joy`(含 `joy.h`),通常无需手动设置。
+
 ## 接入方式(下游工程)
 ```cmake
-set(JOY_SOURCE_DIR "${CMAKE_SOURCE_DIR}/third_party/joy/joy")
 add_subdirectory(third_party/joy_lua)
 target_link_libraries(<game> PRIVATE joy_lua)
 ```
-`joy_lua` 会自行链接 SDL3 与 msgpack(若目标存在),并排除 Lua 独立解释器(`lua.c`)避免 main 冲突。
+`joy_lua` 会自行链接 SDL3 与 msgpack(随 joy 子模块提供,若目标存在则链接)。
 
 > 注:关卡加载已改用 `jtilemap` 的 JSON 后端,不再需要 Lua 来解析 Tiled 地图。
