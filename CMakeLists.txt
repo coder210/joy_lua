@@ -33,14 +33,15 @@ if(NOT TARGET joy_lua)
 
     target_include_directories(joy_lua PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-    # joy 核心以 submodule 形式位于本仓 joy/ 下；也兼容同级源码树（../joy）
-    if(NOT DEFINED JOY_SOURCE_DIR)
+    # joy 核心以 submodule 形式位于本仓 joy/ 下（源码在 joy/src）；也兼容同级源码树。
+    # 旧 build 目录的 cache 可能仍指向已改名的 .../joy/joy，这里按 joy.h 是否存在自动纠正。
+    if(NOT DEFINED JOY_SOURCE_DIR OR NOT EXISTS "${JOY_SOURCE_DIR}/joy.h")
         if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/joy/src/joy.h")
             set(_joy_default "${CMAKE_CURRENT_SOURCE_DIR}/joy/src")
         else()
             set(_joy_default "${CMAKE_CURRENT_SOURCE_DIR}/../joy/src")
         endif()
-        set(JOY_SOURCE_DIR "${_joy_default}" CACHE PATH "joy 源码目录（含 joy.h）")
+        set(JOY_SOURCE_DIR "${_joy_default}" CACHE PATH "joy 源码目录（含 joy.h）" FORCE)
     endif()
     # 使转发头里的 #include <src/joy.h> 等成立
     target_include_directories(joy_lua PRIVATE "${JOY_SOURCE_DIR}/..")
