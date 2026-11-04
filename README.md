@@ -1,5 +1,12 @@
 # joy_lua
 
+> **状态:已合并回 joy 主仓,本仓归档。**
+>
+> 代码现位于 `joy/modules/lua`,通过
+> `joy_add_sources(<target> MODULES lua)` 启用(默认关闭,可用
+> `-DJOY_MODULE_LUA=ON` 打开);引擎头引用已统一为 `<joy/xxx.h>`。
+> 本仓不再接收更新,仅作历史归档。
+
 joy 引擎的可选 **Lua 脚本后端**,从 joy 核心拆出的独立仓库。
 
 ## 定位
